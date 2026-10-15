@@ -1,5 +1,5 @@
 /* Booqer website preview. Navy/cyan tokens from spec §5.1. Mobile first; motion only as progressive enhancement. */
-@font-face{font-family:"Inter";src:url("/shop-themes/inter-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Inter";src:url("inter-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
 
 :root{
   --navy:#081735;--navy-2:#10265a;--cyan:#12bcd4;--cyan-ink:#06788a;--bg:#f5f9fc;--ink:#17253b;--muted:#4a5a72;
@@ -61,49 +61,43 @@ main:focus{outline:none}
 /* Tags and status pills */
 .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.15rem .55rem;border-radius:999px;background:var(--navy);color:#fff;vertical-align:.1em}
 .tag-sim{background:#6b4a00}
-.status-pill{display:inline-block;font:600 .8rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;padding:.15rem .55rem;border-radius:999px;background:var(--ok-bg);color:var(--ok-ink);white-space:nowrap}
-.status-pending_owner_approval,.status-claim-activation_hold,.status-claim-authority_review,.status-claim-identity_pending{background:var(--warn-bg);color:var(--warn-ink)}
+.status-pill{display:inline-block;font:600 .85rem/1.4 "Inter",system-ui,sans-serif;padding:.15rem .65rem;border-radius:999px;background:var(--ok-bg);color:var(--ok-ink)}
+.status-pending_owner_approval,.status-claim-activation_hold,.status-claim-authority_review,.status-claim-identity_pending,.status-claim-scope_approval{background:var(--warn-bg);color:var(--warn-ink)}
 .status-confirmed{background:#ece6ff;color:#3e2a8a}
 .status-claim-needs_information{background:var(--warn-bg);color:var(--warn-ink)}
 .status-claim-rejected{background:var(--bad-bg);color:var(--bad-ink)}
 .status-claim-draft{background:#eef2f6;color:var(--muted)}
 .status-claim-approved_in_demo{background:#ece6ff;color:#3e2a8a}
 
-/* Hero */
-.hero{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);padding:clamp(2rem,6vw,4.5rem) 0 clamp(2rem,5vw,4rem)}
-.hero-grid{display:grid;gap:2rem;align-items:center}
-@media (min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:3rem}}
-.hero-grid>*,.hero-flow>*,.claim-grid>*{min-width:0}
+/* Hero: an AI-infrastructure feel. Navy field, large display type, a light stage so the navy Beacon stays visible. */
+.hero{position:relative;overflow:hidden;color:#dbe6f7;padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(2.5rem,6vw,5rem);background:radial-gradient(60rem 30rem at 85% 10%,rgba(18,188,212,.22),transparent 60%),linear-gradient(180deg,var(--navy) 0%,#0b1f4a 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
+.hero-grid{position:relative;display:grid;gap:2.5rem;align-items:center}
+@media (min-width:960px){.hero-grid{grid-template-columns:1fr 1fr;gap:3rem}}
+.hero-grid>*,.claim-grid>*{min-width:0}
+.hero h1{color:#fff;font-size:clamp(2.4rem,7.2vw,4.7rem);line-height:1.02;font-weight:850;letter-spacing:-.045em;margin:.35em 0 .35em}
 .eyebrow{display:inline-block;font-weight:600;color:var(--cyan-ink);background:var(--ok-bg);border-radius:999px;padding:.2rem .8rem;font-size:.9rem;margin:0}
-.lede{font-size:clamp(1.05rem,2.2vw,1.2rem);color:var(--muted);max-width:38rem}
-.hero-visual{margin:0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:1rem;box-shadow:0 18px 40px -24px rgba(8,23,53,.35)}
-.visual-label{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
-.hero-flow{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"req ." "stage stage" ". status";gap:.25rem}
-.flow-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:.7rem .85rem;font-size:.9rem}
-.flow-card p{margin:0}
-.flow-request{grid-area:req}
-.flow-status{grid-area:status}
-.flow-meta{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.flow-text{color:var(--navy);font-weight:600;margin-top:.2rem!important}
-.flow-sub{font-size:.82rem;color:var(--muted);margin-top:.3rem!important}
-.stage{grid-area:stage;position:relative;max-width:420px;width:100%;margin:0 auto;aspect-ratio:360/320}
+.hero .eyebrow{background:rgba(18,188,212,.16);color:#8fe6f2;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem;font-weight:700}
+.lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--muted);max-width:38rem}
+.hero .lede{color:#c9d4e6}
+.hero-line{font-size:clamp(1.1rem,2.4vw,1.4rem);font-weight:750;letter-spacing:-.02em;color:#8fe6f2;margin:0}
+.hero .btn-primary{background:var(--cyan);color:var(--navy)}
+.hero .btn-primary:hover{background:#5fd7e8;color:var(--navy)}
+.hero .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.hero .btn-secondary:hover{background:rgba(255,255,255,.1);color:#fff}
+.hero-visual{margin:0;background:#fff;border-radius:26px;padding:1rem;box-shadow:0 30px 60px -28px rgba(0,0,0,.6)}
+.visual-label{font-size:.82rem;color:var(--muted);margin-top:.5rem}
+.stage{position:relative;max-width:560px;width:100%;margin:0 auto;aspect-ratio:560/440;background:radial-gradient(circle at 50% 50%,#e3f6f8,#fff 70%);border-radius:18px}
 .stage-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.ring{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:3 6}
-.orbit{fill:none;stroke:var(--cyan);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0}
-.signal,.signal-end{fill:var(--cyan);stroke:#fff;stroke-width:2}
-.signal{opacity:0}
-/* The Beacon is shown no larger than its native 207px width (stage max 420px x 28.75%). */
-.stage-beacon{position:absolute;left:50%;top:50%;width:28.75%;transform:translate(-50%,-50%);display:block}
+.ring{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:3 7}
+.ring-outer{stroke-dasharray:2 10}
+.comm-path{fill:none;stroke:var(--cyan);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:7 11;animation:flow 1.6s linear infinite}
+.node{fill:var(--navy);stroke:var(--cyan);stroke-width:3}
+/* The Beacon is never shown larger than its native 207px width: 36.9% of the 560px stage maximum. */
+.stage-beacon{position:absolute;left:50%;top:50%;width:36.9%;max-width:207px;transform:translate(-50%,-50%);display:block}
 .stage-beacon img{display:block;width:100%;height:auto}
-.hero-visual [data-hero-replay]{margin-top:.6rem}
-/* Motion runs only while JS has started a play, and never under reduced motion. */
-.hero-visual.is-playing .orbit{animation:draw 2.4s linear both}
-.hero-visual.is-playing .signal{opacity:1}
-.hero-visual.is-playing .signal-end{opacity:0}
-.hero-visual.is-playing .flow-status{animation:rise var(--enter) var(--ease) 2.2s both}
-.hero-visual.is-playing .flow-request{animation:rise var(--enter) var(--ease) both}
 .is-tab-hidden *{animation-play-state:paused!important}
-@keyframes draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes flow{to{stroke-dashoffset:-18}}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
 /* Sections and cards */
@@ -130,31 +124,41 @@ main:focus{outline:none}
 .reveal.will-reveal{opacity:0;transform:translateY(12px)}
 .reveal.revealed{opacity:1;transform:none;transition:opacity var(--enter) var(--ease),transform var(--enter) var(--ease)}
 
-/* Demo */
-.demo{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1rem,3vw,1.75rem)}
-.sim-banner{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:.6rem .8rem;font-size:.92rem}
-.tabs{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
-.tabs [role=tab]{min-height:44px;padding:.4rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy);font:inherit;font-weight:600;cursor:pointer;transition:background var(--micro) var(--ease),border-color var(--micro) var(--ease)}
-.tabs [role=tab][aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
-.scenario+.scenario{margin-top:2rem}
-.has-js .scenario+.scenario{margin-top:0}
-.scenario-title{margin-top:1rem}
-.scenario-business{display:block;font-size:.85rem;font-weight:500;color:var(--muted)}
-.journey{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
-.journey-step{border:1px solid var(--line);border-left:4px solid var(--line);border-radius:10px;padding:.65rem .9rem;background:var(--bg);transition:opacity var(--micro) var(--ease),border-color var(--micro) var(--ease),background var(--micro) var(--ease)}
-.journey-step p{margin:0}
-.step-kind{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.step-actor{font-size:.85rem;color:var(--muted)}
-.step-text{color:var(--ink)}
-.kind-question .step-text{font-weight:600;color:var(--navy)}
-.kind-boundary{border-left-color:var(--bad-ink)}
-.kind-simulated{border-style:dashed}
-/* With JS: upcoming steps are dimmed, not hidden, so the full transcript stays readable. */
-.journey.is-stepping .journey-step{opacity:.45}
-.journey.is-stepping .journey-step.is-done{opacity:1}
-.journey.is-stepping .journey-step.is-current{opacity:1;border-left-color:var(--cyan);background:#fff;box-shadow:0 6px 18px -12px rgba(8,23,53,.4)}
-.journey-controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1rem}
+/* Demo: a chat window. Every message is in the HTML; JS hides then reveals them only while a play runs. */
+.section-demo{background:linear-gradient(180deg,var(--bg),#fff)}
+.section-intro{font-size:1.1rem;color:var(--muted);max-width:40rem}
+.chat-window{background:#fff;border:1px solid var(--line);border-radius:22px;max-width:46rem;margin:1.5rem auto 0;box-shadow:0 24px 48px -30px rgba(8,23,53,.45);overflow:hidden}
+.chat-bar{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;padding:.7rem 1rem;background:var(--warn-bg);color:var(--warn-ink);border-bottom:1px solid #ecd98a;font-size:.88rem}
+.chat{list-style:none;margin:0;padding:1.25rem 1rem;display:grid;gap:.8rem}
+.chat-item{max-width:88%;border-radius:18px;padding:.7rem 1rem}
+.chat-item p{margin:0}
+.chat-actor,.chat-label{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.chat-customer{justify-self:start;background:#eef2f6;border-bottom-left-radius:4px}
+.chat-customer .chat-actor{color:var(--muted)}
+.chat-agent{justify-self:end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.chat-agent .chat-actor{color:#8fe6f2}
+.chat-system{justify-self:center;max-width:94%;background:#fff;border:1.5px dashed var(--cyan);text-align:center}
+.chat-system .chat-label{color:var(--cyan-ink)}
+.chat-result{justify-self:center;max-width:94%;background:var(--ok-bg);border:1.5px solid var(--cyan-ink);text-align:center}
+.chat-result .chat-label{font-size:.95rem;color:var(--ok-ink)}
+.chat-text{margin-top:.15rem!important}
+.chat-typing{display:flex;gap:5px;align-items:center;padding:.9rem 1rem}
+.chat-typing.chat-agent{background:var(--navy)}
+.chat-typing span{width:8px;height:8px;border-radius:50%;background:var(--muted);animation:blink 1s ease-in-out infinite}
+.chat-typing.chat-agent span{background:#8fe6f2}
+.chat-typing span:nth-child(2){animation-delay:.15s}
+.chat-typing span:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+/* While playing, unrevealed messages keep their space (no layout jump) but are invisible. */
+.chat.is-playing .chat-item:not(.is-shown){opacity:0;transform:translateY(8px)}
+.chat.is-playing .chat-item.is-shown{opacity:1;transform:none;transition:opacity var(--enter) var(--ease),transform var(--enter) var(--ease)}
+.chat-controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:0 1rem 1rem}
 .step-count{font-size:.88rem;color:var(--muted);margin-left:.25rem}
+
+/* Evidence slot: a placeholder only. */
+.evidence-card{border:2px dashed var(--cyan-ink);border-radius:22px;background:#fff;padding:clamp(1.25rem,4vw,2.25rem);text-align:center}
+.evidence-card h2{font-size:clamp(1.25rem,3vw,1.7rem)}
+.evidence-status{margin:0 0 .8rem}
 
 /* Pilot, FAQ */
 .pilot{max-width:46rem}
@@ -175,6 +179,7 @@ main:focus{outline:none}
 .state-nav a[aria-current]{border-color:var(--navy);background:var(--navy);color:#fff}
 .resume{margin-top:.8rem}
 .claim-main{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(1rem,3vw,2rem)}
+.task-kicker{margin:0;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--cyan-ink)}
 .claim-status{font-weight:600}
 .claim-progress{list-style:none;margin:1rem 0 1.5rem;padding:0;display:grid;gap:.4rem}
 .check{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.55rem .8rem;border-radius:10px;background:var(--bg);border-left:4px solid var(--line)}
@@ -214,11 +219,10 @@ main:focus{outline:none}
 .js-only{display:none!important}
 .has-js .js-only{display:flex!important}
 .has-js .btn.js-only{display:inline-flex!important}
-.has-js .resume.js-only[hidden]{display:none!important}
+.has-js .resume.js-only[hidden],.has-js .js-only[hidden]{display:none!important}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .signal{opacity:0!important}
-  .signal-end{opacity:1!important}
+  .chat.is-playing .chat-item:not(.is-shown){opacity:1;transform:none}
   .reveal.will-reveal{opacity:1;transform:none}
 }

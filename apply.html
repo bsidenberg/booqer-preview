@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Founding pilot application, private design preview.">
+<title>Apply for the Booqer founding pilot</title>
+<link rel="stylesheet" href="website/site.css">
+<script src="website/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-banner" role="note">Private design preview. Fixture data only. This is not the live Booqer site.</div>
+<header class="site-header">
+<div class="wrap header-row">
+<a class="brand" href="index.html"><img class="beacon" src="website/booqer-beacon-clean.png" width="24" height="31" alt=""><span class="wordmark">Booqer</span></a>
+<nav aria-label="Main">
+<ul class="nav">
+<li><a href="index.html#demo">Demo</a></li>
+<li><a href="index.html#controls">Owner controls</a></li>
+<li><a href="index.html#faq">FAQ</a></li>
+<li><a class="nav-claim" href="claim/index.html">Claim your business</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1"><section class="section" aria-labelledby="apply-title">
+<div class="wrap apply">
+<p class="eyebrow">Founding pilot, by invitation</p>
+<h1 id="apply-title">Apply for the founding pilot</h1>
+<p class="lede">Tell us a little about your business. Applying creates no obligation, and nothing is booked or charged.</p>
+
+<form method="post" action="https://booqer.ai/apply" novalidate>
+<p class="field"><label for="business_name">Business name</label><br>
+<input id="business_name" name="business_name" type="text" maxlength="120" autocomplete="organization" value="" required>
+</p>
+<p class="field"><label for="contact_name">Contact name</label><br>
+<input id="contact_name" name="contact_name" type="text" maxlength="120" autocomplete="name" value="" required>
+</p>
+<p class="field"><label for="email">Email</label><br>
+<input id="email" name="email" type="email" maxlength="254" autocomplete="email" value="" required>
+</p>
+<p class="field"><label for="phone">Phone (optional)</label><br>
+<input id="phone" name="phone" type="tel" maxlength="30" autocomplete="tel" value="">
+</p>
+<p class="field"><label for="trade">Trade</label><br>
+<select id="trade" name="trade" required>
+<option value="" selected>Choose a trade</option>
+<option value="plumbing">Plumbing</option><option value="hvac">HVAC</option><option value="electrical">Electrical</option><option value="other">Other</option>
+</select>
+</p>
+<p class="field"><label for="service_area">Service area (city or county)</label><br>
+<input id="service_area" name="service_area" type="text" maxlength="120" autocomplete="off" value="" required>
+</p>
+<p class="field"><label for="note">Anything else we should know (optional)</label><br>
+<textarea id="note" name="note" rows="4" maxlength="1000"></textarea>
+</p>
+<p class="field"><input id="consent" name="consent" type="checkbox"> <label for="consent">Booqer may contact me about the founding pilot.</label>
+</p>
+<p><button class="btn btn-primary" type="submit">Send application</button></p>
+</form>
+<p class="pilot-note">Please do not include license numbers, identity documents or payment details. We do not ask for them here.</p>
+</div>
+</section></main>
+<footer class="site-footer">
+<div class="wrap footer-grid">
+<div class="footer-brand"><span class="beacon-tile"><img class="beacon" src="website/booqer-beacon-clean.png" width="32" height="41" alt=""></span><span class="wordmark">Booqer</span></div>
+<div>
+<h2 class="footer-h">Company</h2>
+<p>Great Dane Holdings LLC, a Wyoming limited liability company, doing business as Booqer.</p>
+<p>Mailing address: PO Box 120386, Clermont, FL 34712</p>
+<p>Support: <a href="mailto:support@booqer.ai">support@booqer.ai</a></p>
+</div>
+<div>
+<h2 class="footer-h">Legal</h2>
+<ul class="plain">
+<li><a href="https://booqer.ai/privacy">Privacy</a></li>
+<li><a href="https://booqer.ai/terms">Terms</a></li>
+<li><a href="https://booqer.ai/support">Support</a></li>
+</ul>
+</div>
+<div>
+<h2 class="footer-h">Developers</h2>
+<ul class="plain"><li><a href="https://booqer.ai/mcp">MCP endpoint</a></li><li><a href="https://booqer.ai/.well-known/agent.json">Agent card</a></li><li><a href="https://booqer.ai/v1/businesses">Businesses API</a></li></ul>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Booqer helps service businesses become easier to discover and engage through AI assistants, with approved service information, controlled booking workflows, and existing operations kept in the loop.">
+<meta name="description" content="When customers ask AI to find a plumber, HVAC contractor, or other service professional, Booqer helps turn that recommendation into an appointment.">
 <title>Booqer: AI-accessible service businesses (preview)</title>
 <link rel="stylesheet" href="website/site.css">
 <script src="website/site.js" defer></script>
@@ -17,8 +17,8 @@
 <a class="brand" href="index.html"><img class="beacon" src="website/booqer-beacon-clean.png" width="24" height="31" alt=""><span class="wordmark">Booqer</span></a>
 <nav aria-label="Main">
 <ul class="nav">
-<li><a href="index.html#how">How it works</a></li>
 <li><a href="index.html#demo">Demo</a></li>
+<li><a href="index.html#controls">Owner controls</a></li>
 <li><a href="index.html#faq">FAQ</a></li>
 <li><a class="nav-claim" href="claim/index.html">Claim your business</a></li>
 </ul>
@@ -30,156 +30,69 @@
 <div class="hero-copy">
 <p class="eyebrow">Founding pilot, by invitation</p>
 <h1 id="hero-title">Your next customer is asking AI. Can AI book you?</h1>
-<p class="lede">Booqer helps service businesses become easier to discover and engage through AI assistants, with approved service information, controlled booking workflows, and existing operations kept in the loop.</p>
+<p class="lede">When customers ask AI to find a plumber, HVAC contractor, or other service professional, Booqer helps turn that recommendation into an appointment.</p>
+<p class="hero-line">Your services. Your prices. Your rules.</p>
 <p class="cta-row">
-<a class="btn btn-primary" href="#pilot">Join the founding pilot</a>
+<a class="btn btn-primary" href="https://booqer.ai/apply">Join the founding pilot</a>
 <a class="btn btn-secondary" href="#demo">See it in action</a>
 </p>
 </div>
-<figure class="hero-visual" data-hero>
-<figcaption class="visual-label"><span class="tag">Illustrative workflow</span> Not a live booking. No business or assistant is connected to this picture.</figcaption>
-<div class="hero-flow">
-<div class="flow-card flow-request">
-<p class="flow-meta">A customer asks their assistant</p>
-<p class="flow-text">“Can someone install a kitchen faucet Thursday morning?”</p>
-</div>
-<div class="stage">
-<svg class="stage-svg" viewBox="0 0 360 320" aria-hidden="true" focusable="false">
-<circle class="ring" cx="180" cy="160" r="95"/>
-<path class="orbit" d="M 0 160 H 85 A 95 95 0 1 1 275 160 H 360" pathLength="100"/>
-<circle class="signal-end" cx="360" cy="160" r="6"/>
-<circle class="signal" r="6"><animateMotion dur="2.4s" begin="indefinite" fill="freeze" path="M 0 160 H 85 A 95 95 0 1 1 275 160 H 360"/></circle>
+<figure class="hero-visual">
+<div class="stage" aria-hidden="true">
+<svg class="stage-svg" viewBox="0 0 560 440" focusable="false">
+<circle class="ring" cx="280" cy="220" r="150"/>
+<circle class="ring ring-outer" cx="280" cy="220" r="205"/>
+<path class="comm-path" d="M 40 90 C 120 90 130 140 170 170"/><path class="comm-path" d="M 40 330 C 120 330 130 280 170 270"/><path class="comm-path" d="M 390 170 C 430 140 440 90 520 90"/><path class="comm-path" d="M 390 270 C 430 280 440 330 520 330"/>
+<circle class="node" cx="40" cy="90" r="7"/><circle class="node" cx="40" cy="330" r="7"/><circle class="node" cx="520" cy="90" r="7"/><circle class="node" cx="520" cy="330" r="7"/>
 </svg>
-<span class="stage-beacon"><img src="website/booqer-beacon-clean.png" width="207" height="268" alt="Booqer Beacon"></span>
+<span class="stage-beacon"><img src="website/booqer-beacon-clean.png" width="207" height="268" alt=""></span>
 </div>
-<div class="flow-card flow-status">
-<p class="flow-meta">Example status</p>
-<p class="flow-text"><span class="status-pill status-request_received">Request received</span></p>
-<p class="flow-sub">Pending owner approval. Nothing is confirmed yet.</p>
-</div>
-</div>
-<button type="button" class="btn btn-quiet js-only" data-hero-replay>Replay</button>
+<figcaption class="visual-label"><span class="tag">Illustrative graphic</span> Requests from a customer&#39;s assistant reach a business through its Booqer Beacon. Not a live connection.</figcaption>
 </figure>
 </div>
-</section><section class="section" aria-labelledby="outcomes-title">
+</section><section class="section section-demo" id="demo" aria-labelledby="demo-title">
 <div class="wrap">
-<h2 id="outcomes-title">What Booqer does for a service business</h2>
-<ul class="cards cards-3"><li class="card reveal"><h3>Get discovered</h3><p>A public profile that assistants that can browse the web can read: your services, service area and how to reach you.</p></li><li class="card reveal"><h3>Answer with approved information</h3><p>Assistants retrieve the services, price ranges and rules you approved, not guesses scraped from old listings.</p></li><li class="card reveal"><h3>Request or book through supported flows</h3><p>Customers can request a quote or an appointment where your rules allow it. You stay in control of what gets confirmed.</p></li></ul>
+<h2 id="demo-title">See what an assistant can do for a business like yours</h2>
+<p class="section-intro">A customer asks their own AI assistant for help. Watch how the request reaches a Booqer-enabled business.</p>
+<div class="chat-window" data-demo>
+<div class="chat-bar">
+<span class="tag tag-sim">Fictional example</span>
+<span class="chat-note">Fictional business and customer. Nothing here contacts a business or creates an appointment.</span>
 </div>
-</section><section class="section section-tint" id="how" aria-labelledby="how-title">
-<div class="wrap">
-<h2 id="how-title">How it works</h2>
-<ol class="cards cards-4 numbered"><li class="card reveal"><h3>Verify and configure</h3><p>We check your business and you set the services, areas and booking rules Booqer may use.</p></li><li class="card reveal"><h3>Publish capabilities</h3><p>Booqer publishes a public profile and machine-readable data from what you approved.</p></li><li class="card reveal"><h3>Assistants find you</h3><p>An assistant looking for a relevant local business can find your profile and read it.</p></li><li class="card reveal"><h3>Approved action</h3><p>The assistant can submit an inquiry or booking request. Requests and confirmations stay distinct.</p></li></ol>
-</div>
-</section><section class="section" id="demo" aria-labelledby="demo-title">
-<div class="wrap">
-<h2 id="demo-title">See it in action</h2>
-<p>Pick a trade and step through what an assistant may say and do for an example business.</p>
-<div class="demo" data-demo>
-<p class="sim-banner" role="note"><span class="tag tag-sim">Simulation</span> Simulation. Fictional businesses and customers, fixture data, no network requests. Nothing here contacts a business or creates a booking.</p>
-<div class="tabs js-only" role="tablist" aria-label="Example trade"><button type="button" role="tab" id="tab-plumbing" aria-controls="scenario-plumbing" aria-selected="true" tabindex="0" data-tab="plumbing">Plumbing</button><button type="button" role="tab" id="tab-hvac" aria-controls="scenario-hvac" aria-selected="false" tabindex="-1" data-tab="hvac">HVAC</button></div>
-<article class="scenario" id="scenario-plumbing" data-scenario="plumbing" role="tabpanel" aria-labelledby="tab-plumbing">
-<h3 class="scenario-title">Plumbing: Faucet installation <span class="scenario-business">Example Plumbing Co. (fictional)</span></h3>
-<ol class="journey"><li class="journey-step kind-question" data-step="0">
-<p class="step-kind">Customer</p>
-<p class="step-actor">Customer to their assistant</p>
-<p class="step-text">Can someone install a kitchen faucet I already bought, Thursday morning?</p>
-</li><li class="journey-step kind-lookup" data-step="1">
-<p class="step-kind">Discovery</p>
-<p class="step-actor">Assistant</p>
-<p class="step-text">Finds Example Plumbing Co.&#39;s Booqer profile and reads its approved services and service area.</p>
-</li><li class="journey-step kind-answer" data-step="2">
-<p class="step-kind">Approved answer</p>
-<p class="step-actor">Assistant, from approved data</p>
-<p class="step-text">Installing a customer-supplied faucet is an approved service in your area. The profile shows the owner&#39;s approved price range; the business confirms the final price.</p>
-</li><li class="journey-step kind-action" data-step="3">
-<p class="step-kind">Permitted next action</p>
-<p class="step-actor">Assistant</p>
-<p class="step-text">Thursday morning fits the business&#39;s booking rules, so the assistant may submit an appointment request. It may not confirm the appointment itself.</p>
-</li><li class="journey-step kind-status" data-step="4">
-<p class="step-kind">Status <span class="status-pill status-request_received">request_received</span></p>
-<p class="step-actor">Booqer</p>
-<p class="step-text">Request received. Reference DEMO-PL-0001.</p>
-</li><li class="journey-step kind-status" data-step="5">
-<p class="step-kind">Status <span class="status-pill status-pending_owner_approval">pending_owner_approval</span></p>
-<p class="step-actor">Booqer</p>
-<p class="step-text">Pending owner approval. Nothing is confirmed yet.</p>
-</li><li class="journey-step kind-simulated" data-step="6">
-<p class="step-kind">Simulated outcome <span class="status-pill status-confirmed">confirmed</span></p>
-<p class="step-actor">Example owner</p>
-<p class="step-text">Simulated: the owner approves and the request becomes a confirmed appointment. In this demo no business was contacted.</p>
-</li></ol>
-<div class="journey-controls js-only" role="group" aria-label="Demo controls for Plumbing">
+<ol class="chat" aria-label="Fictional example: conversation transcript"><li class="chat-item chat-customer" data-step="0"><p class="chat-actor">Customer&#39;s assistant</p><p class="chat-text">I need someone to install a kitchen faucet in Clermont this week.</p></li><li class="chat-item chat-system" data-step="1"><p class="chat-label">Business discovery</p><p class="chat-text">The assistant looks for local plumbers that publish approved services through Booqer.</p></li><li class="chat-item chat-system" data-step="2"><p class="chat-label">Authorized connection</p><p class="chat-text">It connects to Example Plumbing Co.&#39;s agent, which acts only within what the owner approved.</p></li><li class="chat-item chat-agent" data-step="3"><p class="chat-actor">Example Plumbing Co. Booqer agent (fictional)</p><p class="chat-text">We offer faucet installations in your area. Would you like to request an appointment?</p></li><li class="chat-item chat-result" data-step="4"><p class="chat-label">Appointment request available</p><p class="chat-text">The customer can now send a request. The owner decides what happens next.</p></li></ol>
+<div class="chat-controls js-only" role="group" aria-label="Demo controls">
 <button type="button" class="btn btn-small" data-action="play">Play</button>
 <button type="button" class="btn btn-small" data-action="pause">Pause</button>
 <button type="button" class="btn btn-small" data-action="replay">Replay</button>
-<button type="button" class="btn btn-small" data-action="prev" aria-label="Previous step">←</button>
-<button type="button" class="btn btn-small" data-action="next" aria-label="Next step">→</button>
 <span class="step-count" aria-live="polite" data-live></span>
 </div>
-</article><article class="scenario" id="scenario-hvac" data-scenario="hvac" role="tabpanel" aria-labelledby="tab-hvac" data-initially-hidden="1">
-<h3 class="scenario-title">HVAC: Diagnostic visit <span class="scenario-business">Example HVAC Co. (fictional)</span></h3>
-<ol class="journey"><li class="journey-step kind-question" data-step="0">
-<p class="step-kind">Customer</p>
-<p class="step-actor">Customer to their assistant</p>
-<p class="step-text">My AC is blowing warm air. Can someone diagnose it this week?</p>
-</li><li class="journey-step kind-lookup" data-step="1">
-<p class="step-kind">Discovery</p>
-<p class="step-actor">Assistant</p>
-<p class="step-text">Finds Example HVAC Co.&#39;s Booqer profile and reads its approved services and booking rules.</p>
-</li><li class="journey-step kind-answer" data-step="2">
-<p class="step-kind">Approved answer</p>
-<p class="step-actor">Assistant, from approved data</p>
-<p class="step-text">A diagnostic visit is an approved service. Repair or replacement pricing needs a quote from the business after the diagnosis.</p>
-</li><li class="journey-step kind-boundary" data-step="3">
-<p class="step-kind">Outside approved scope</p>
-<p class="step-actor">Assistant</p>
-<p class="step-text">The customer asks for a guaranteed same-day emergency visit. That is not an approved service, so the assistant says so and promises nothing.</p>
-</li><li class="journey-step kind-action" data-step="4">
-<p class="step-kind">Permitted next action</p>
-<p class="step-actor">Assistant</p>
-<p class="step-text">The assistant may request a diagnostic appointment in an open window this week.</p>
-</li><li class="journey-step kind-status" data-step="5">
-<p class="step-kind">Status <span class="status-pill status-request_received">request_received</span></p>
-<p class="step-actor">Booqer</p>
-<p class="step-text">Request received. Reference DEMO-HV-0001.</p>
-</li><li class="journey-step kind-status" data-step="6">
-<p class="step-kind">Status <span class="status-pill status-pending_owner_approval">pending_owner_approval</span></p>
-<p class="step-actor">Booqer</p>
-<p class="step-text">Pending owner approval. Nothing is confirmed yet.</p>
-</li><li class="journey-step kind-simulated" data-step="7">
-<p class="step-kind">Simulated outcome <span class="status-pill status-confirmed">confirmed</span></p>
-<p class="step-actor">Example owner</p>
-<p class="step-text">Simulated: the owner approves a time and the request becomes a confirmed appointment. In this demo no business was contacted.</p>
-</li></ol>
-<div class="journey-controls js-only" role="group" aria-label="Demo controls for HVAC">
-<button type="button" class="btn btn-small" data-action="play">Play</button>
-<button type="button" class="btn btn-small" data-action="pause">Pause</button>
-<button type="button" class="btn btn-small" data-action="replay">Replay</button>
-<button type="button" class="btn btn-small" data-action="prev" aria-label="Previous step">←</button>
-<button type="button" class="btn btn-small" data-action="next" aria-label="Next step">→</button>
-<span class="step-count" aria-live="polite" data-live></span>
-</div>
-</article>
 </div>
 </div>
-</section><section class="section section-tint" aria-labelledby="controls-title">
-<div class="wrap split">
-<div class="reveal">
-<h2>Why not an AI receptionist?</h2>
-<p>An AI receptionist answers when a customer calls you. Booqer starts earlier: at the customer&#39;s own assistant, while it is still deciding who to contact. The two can work together.</p>
+</section><section class="section section-tint" id="assistant-first" aria-labelledby="assistant-title">
+<div class="wrap narrow reveal">
+<h2 id="assistant-title">Booqer starts with the customer&#39;s assistant, not a receptionist</h2>
+<p class="section-intro">An AI receptionist answers when a customer calls you. Booqer starts earlier: at the customer&#39;s own assistant, while it is still deciding who to contact. The two can work together.</p>
 </div>
-<div class="reveal">
-<h2 id="controls-title">You decide what Booqer may do</h2>
+</section><section class="section" aria-labelledby="evidence-title">
+<div class="wrap narrow">
+<div class="evidence-card reveal">
+<p class="evidence-status"><span class="tag">Recording coming soon</span></p>
+<h2 id="evidence-title">Watch an independent AI agent discover a Booqer-enabled business and request an appointment.</h2>
+<p class="note">Placeholder only. No recording exists yet, and this card shows no result.</p>
+</div>
+</div>
+</section><section class="section section-tint" id="controls" aria-labelledby="controls-title">
+<div class="wrap narrow reveal">
+<h2 id="controls-title">You decide what your agent may do</h2>
 <ul class="checks"><li>Which services and price ranges an assistant may quote.</li><li>Which requests need your approval before anything is confirmed.</li><li>Where you work and when appointments can be requested.</li><li>How requests reach your existing workflow, where an integration is supported.</li><li>Pause or revoke Booqer&#39;s authority at any time.</li></ul>
-</div>
 </div>
 </section><section class="section section-navy" id="pilot" aria-labelledby="pilot-title">
 <div class="wrap pilot">
 <h2 id="pilot-title">Founding pilot</h2>
 <p class="pilot-line">Booqer is currently offered as a free founding pilot by invitation. Joining the pilot creates no obligation.</p>
 <p>Participating AI platforms vary. Search visibility, direct tool access, lead volume and confirmed bookings are not guaranteed during the experimental pilot.</p>
-<p class="pilot-note">The pilot application form arrives in a later slice of this preview. Questions in the meantime: <a href="mailto:support@booqer.ai">support@booqer.ai</a>.</p>
+<p><a class="btn btn-on-navy" href="https://booqer.ai/apply">Join the founding pilot</a></p>
+<p class="pilot-note">Applications take a minute. Questions in the meantime: <a href="mailto:support@booqer.ai">support@booqer.ai</a>.</p>
 <p><a class="btn btn-on-navy" href="claim/index.html">Already in the pilot? Claim your business</a></p>
 </div>
 </section><section class="section" id="faq" aria-labelledby="faq-title">

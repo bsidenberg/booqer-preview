@@ -16,123 +16,86 @@
     if (doc.hidden) hiddenHandlers.forEach(function (fn) { fn(); });
   });
 
-  // ---- Hero: one short signal run around the Beacon, then rest. Replay on request. --------------------------------
-  var hero = doc.querySelector("[data-hero]");
-  if (hero) {
-    var motion = hero.querySelector("animateMotion");
-    var replay = hero.querySelector("[data-hero-replay]");
-    var heroTimer = 0;
-    var finishHero = function () {
-      window.clearTimeout(heroTimer);
-      hero.classList.remove("is-playing");
-    };
-    var playHero = function () {
-      if (reduced()) return;
-      finishHero();
-      void hero.offsetWidth; // restart CSS animations
-      hero.classList.add("is-playing");
-      if (motion && motion.beginElement) motion.beginElement();
-      heroTimer = window.setTimeout(finishHero, 2900);
-    };
-    hiddenHandlers.push(finishHero);
-    if (replay) {
-      replay.hidden = reduced();
-      replay.addEventListener("click", playHero);
-    }
-    if (motionQuery && motionQuery.addEventListener) {
-      motionQuery.addEventListener("change", function () {
-        if (replay) replay.hidden = reduced();
-        if (reduced()) finishHero();
-      });
-    }
-    window.setTimeout(playHero, 300);
-  }
-
-  // ---- AgentJourneyDemo: tabs plus step-through. The transcript stays visible; steps are highlighted, never hidden. --
-  var STEP_MS = 1600;
+  // ---- Conversation demo: typing indicators and message reveal. Without JS or under reduced motion the full transcript shows. --
+  var TYPE_MS = 1200;
+  var GAP_MS = 800;
   Array.prototype.forEach.call(doc.querySelectorAll("[data-demo]"), function (demo) {
-    var tabs = Array.prototype.slice.call(demo.querySelectorAll("[role=tab]"));
-    var players = [];
+    var list = demo.querySelector(".chat");
+    var items = Array.prototype.slice.call(list.querySelectorAll(".chat-item"));
+    var live = demo.querySelector("[data-live]");
+    var shown = items.length; // everything visible until a play starts
+    var timer = 0;
+    var typing = null;
+    var started = false;
 
-    Array.prototype.forEach.call(demo.querySelectorAll("[data-scenario]"), function (panel) {
-      if (panel.getAttribute("data-initially-hidden") === "1") panel.hidden = true;
-      var list = panel.querySelector(".journey");
-      var steps = Array.prototype.slice.call(panel.querySelectorAll(".journey-step"));
-      var live = panel.querySelector("[data-live]");
-      var index = -1;
-      var timer = 0;
-
-      function render() {
-        list.classList.toggle("is-stepping", index >= 0);
-        steps.forEach(function (step, i) {
-          step.classList.toggle("is-done", i < index);
-          step.classList.toggle("is-current", i === index);
-          if (i === index) step.setAttribute("aria-current", "step");
-          else step.removeAttribute("aria-current");
-        });
-        if (live) {
-          var kind = index >= 0 ? steps[index].querySelector(".step-kind").firstChild.textContent.trim() : "";
-          live.textContent = index >= 0 ? "Step " + (index + 1) + " of " + steps.length + ": " + kind : "";
-        }
-      }
-      function stop() {
-        window.clearInterval(timer);
-        timer = 0;
-      }
-      function go(i) {
-        index = Math.max(0, Math.min(steps.length - 1, i));
-        render();
-      }
-      function play() {
-        stop();
-        if (index >= steps.length - 1) index = -1;
-        go(index + 1);
-        timer = window.setInterval(function () {
-          if (index >= steps.length - 1) return stop();
-          go(index + 1);
-        }, STEP_MS);
-      }
-      var actions = {
-        play: play,
-        pause: stop,
-        replay: function () { index = -1; play(); },
-        prev: function () { stop(); go(index - 1); },
-        next: function () { stop(); go(index + 1); },
-      };
-      Array.prototype.forEach.call(panel.querySelectorAll("[data-action]"), function (button) {
-        button.addEventListener("click", function () {
-          actions[button.getAttribute("data-action")]();
-        });
-      });
-      players.push(stop);
-      hiddenHandlers.push(stop);
-    });
-
-    function select(tab, focus) {
-      players.forEach(function (stop) { stop(); });
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute("aria-selected", on ? "true" : "false");
-        t.tabIndex = on ? 0 : -1;
-        var panel = doc.getElementById(t.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !on;
-      });
-      if (focus) tab.focus();
+    function clearTyping() {
+      if (typing && typing.parentNode) typing.parentNode.removeChild(typing);
+      typing = null;
     }
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () { select(tab, false); });
-      tab.addEventListener("keydown", function (e) {
-        var next = null;
-        if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
-        else if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
-        else if (e.key === "Home") next = tabs[0];
-        else if (e.key === "End") next = tabs[tabs.length - 1];
-        if (next) {
-          e.preventDefault();
-          select(next, true);
-        }
+    function stop() {
+      window.clearTimeout(timer);
+      timer = 0;
+      clearTyping();
+    }
+    function render() {
+      list.classList.add("is-playing");
+      items.forEach(function (item, i) {
+        item.classList.toggle("is-shown", i < shown);
+      });
+      if (live) live.textContent = shown >= items.length ? "Done" : "Message " + (shown + 1) + " of " + items.length;
+    }
+    function showTyping(item) {
+      clearTyping();
+      typing = doc.createElement("li");
+      typing.className = "chat-item chat-typing chat-" + (item.classList.contains("chat-customer") ? "customer" : "agent") + " is-shown";
+      typing.setAttribute("aria-hidden", "true");
+      for (var d = 0; d < 3; d++) typing.appendChild(doc.createElement("span"));
+      list.insertBefore(typing, item);
+    }
+    function step() {
+      if (shown >= items.length) return stop();
+      var next = items[shown];
+      var talks = next.classList.contains("chat-customer") || next.classList.contains("chat-agent");
+      if (talks) showTyping(next);
+      timer = window.setTimeout(function () {
+        clearTyping();
+        shown += 1;
+        render();
+        timer = window.setTimeout(step, GAP_MS);
+      }, talks ? TYPE_MS : GAP_MS);
+    }
+    function play() {
+      if (reduced()) return;
+      stop();
+      if (shown >= items.length) shown = 0;
+      started = true;
+      render();
+      step();
+    }
+    var actions = {
+      play: play,
+      pause: function () { stop(); },
+      replay: function () { stop(); shown = 0; play(); },
+    };
+    Array.prototype.forEach.call(demo.querySelectorAll("[data-action]"), function (button) {
+      button.addEventListener("click", function () {
+        actions[button.getAttribute("data-action")]();
       });
     });
+    hiddenHandlers.push(stop);
+
+    if (reduced()) {
+      Array.prototype.forEach.call(demo.querySelectorAll(".chat-controls"), function (c) { c.hidden = true; });
+    } else if ("IntersectionObserver" in window) {
+      // Start once, when the demo scrolls into view; it is already complete in the HTML if this never fires.
+      var watcher = new window.IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting || started) return;
+        watcher.disconnect();
+        shown = 0;
+        play();
+      }, { threshold: 0.4 });
+      watcher.observe(demo);
+    }
   });
 
   // ---- One-time reveals for cards below the fold. Skipped under reduced motion or without IntersectionObserver. -----
